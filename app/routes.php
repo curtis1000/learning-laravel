@@ -11,6 +11,12 @@
 |
 */
 
+// bind repositories
+App::bind('LanguageRepositoryInterface', 'ConstLanguageRepository');
+App::bind('AccountRepositoryInterface',  'EloquentAccountRepository');
+App::bind('DealerRepositoryInterface',   'EloquentDealerRepository');
+
+
 Route::get('/', function()
 {
 	return 'check if user is logged in and redirect conditionally to ??? or /login';

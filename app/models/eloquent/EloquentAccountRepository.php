@@ -1,9 +1,7 @@
 <?php
 
-use \LaravelBook\Ardent\Ardent;
-
-class Account extends Ardent {
-
+class EloquentAccountRepository extends Eloquent implements AccountRepositoryInterface
+{
     /**
      * The database table used by the model.
      *
@@ -15,5 +13,4 @@ class Account extends Ardent {
      * @var array
      */
     protected $guarded = array('login_email_address', 'password');
-
 }
