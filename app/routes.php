@@ -16,17 +16,14 @@ App::bind('LanguageRepositoryInterface', 'ConstLanguageRepository');
 App::bind('AccountRepositoryInterface',  'EloquentAccountRepository');
 App::bind('DealerRepositoryInterface',   'EloquentDealerRepository');
 
-
 Route::get('/', function()
 {
-	return 'check if user is logged in and redirect conditionally to ??? or /login';
+	return 'hello';
 });
 
-Route::get('login', 'LoginController@showLogin');
-
-Route::get('dealer/register', array(
-        'as'    => 'get-dealer-register',
-        'uses'  => 'DealerRegisterController@getForm'
+Route::get('dealers', array(
+        'as'    => 'dealers-index',
+        'uses'  => 'DealersController@index'
     )
 );
 

@@ -9,7 +9,15 @@ class DealersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$accounts = App::make('AccountRepositoryInterface');
+        $dealers = App::make('DealerRepositoryInterface')->all()->toArray();
+
+        // build joined data structure manually
+        foreach ($dealers as $i => $dealer) {
+            $dealers[$i]['account'] = $accounts->where('id', '=', $dealers[$i]['account_id'])->get()->toArray();
+        }
+
+        return View::make('dealers-index', array('dealers' => $dealers));
 	}
 
 	/**

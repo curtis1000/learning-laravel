@@ -13,4 +13,5 @@ class EloquentAccountRepository extends Eloquent implements AccountRepositoryInt
      * @var array
      */
     protected $guarded = array('login_email_address', 'password');
+
 }
